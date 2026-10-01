@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    @apply bg-cream-50 text-ink font-sans;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  ::selection {
+    background-color: #AF5C40;
+    color: #ffffff;
+  }
+
+  /* Custom subtle terracotta/forest scrollbar matching theme */
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #FAF7F2;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #AF5C4066;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #AF5C40;
+  }
+}
+
+@layer components {
+  /* Buttons matching reference */
+  .btn-forest {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-forest-800 hover:bg-forest-900 text-white font-medium text-xs sm:text-sm tracking-wider uppercase px-6 py-3 transition-all duration-300 shadow-sm hover:shadow-forest active:scale-95;
+  }
+  
+  .btn-terracotta {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-terracotta-600 hover:bg-terracotta-700 text-white font-medium text-xs sm:text-sm tracking-wider uppercase px-6 py-3 transition-all duration-300 shadow-sm hover:shadow-terracotta active:scale-95;
+  }
+
+  .btn-outline-white {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-white/80 hover:border-white hover:bg-white hover:text-forest-800 text-white font-medium text-xs sm:text-sm tracking-wider uppercase px-5 py-2.5 transition-all duration-300 active:scale-95;
+  }
+
+  /* Category & bento cards matching reference */
+  .category-card {
+    @apply relative flex flex-col justify-between rounded-xl bg-cream-200/90 border border-cream-300/80 p-3 sm:p-4 text-left transition-all duration-300 shadow-soft hover:-translate-y-1.5 hover:shadow-card-hover hover:border-terracotta-500/30;
+  }
+
+  /* Input fields */
+  .field-input {
+    @apply w-full rounded-md border border-cream-300 bg-white/90 px-4 py-2.5 text-xs sm:text-sm text-ink placeholder:text-ink-light outline-none transition duration-200 focus:border-terracotta-500 focus:ring-2 focus:ring-terracotta-500/20;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Arched container styling */
+.arch-top {
+  border-radius: 9999px 9999px 0 0;
+}
